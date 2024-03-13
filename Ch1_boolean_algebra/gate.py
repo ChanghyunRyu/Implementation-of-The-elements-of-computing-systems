@@ -24,6 +24,7 @@ def xor_gate(a, b):
     return and_gate(or_gate(a, b), nand_gate(a, b))
 
 
+# Mul function is function that take multibits as input,calculate each operation, and then output multibits
 def mul_not_gate(bits):
     temp = []
     for bit in bits:
@@ -43,3 +44,17 @@ def mul_or_gate(bits_a, bits_b):
     for i in range(len(bits_a)):
         temp.append(or_gate(bits_a[i], bits_b[i]))
     return temp
+
+
+def mul_input_and_gate(bits_a):
+    result = 1
+    for a in bits_a:
+        result = and_gate(result, a)
+    return result
+
+
+def mul_input_or_gate(bits_a):
+    result = 0
+    for a in bits_a:
+        result = or_gate(result, a)
+    return result
