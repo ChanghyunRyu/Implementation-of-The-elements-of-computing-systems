@@ -48,3 +48,15 @@ def dmux_4_way(a, sel):
             gate.mul_input_and_gate([a, gate.not_gate(sel[0]), sel[1]]),
             gate.mul_input_and_gate([a, sel[0], gate.not_gate(sel[1])]),
             gate.mul_input_and_gate([a, sel[0], sel[1]])]
+
+
+def dmux_8_way(a, sel):
+    return [gate.mul_input_and_gate([a, gate.not_gate(sel[0]), gate.not_gate(sel[1]), gate.not_gate(sel[2])]),
+            gate.mul_input_and_gate([a, gate.not_gate(sel[0]), gate.not_gate(sel[1]), sel[2]]),
+            gate.mul_input_and_gate([a, gate.not_gate(sel[0]), sel[1], gate.not_gate(sel[2])]),
+            gate.mul_input_and_gate([a, gate.not_gate(sel[0]), sel[1], sel[2]]),
+            gate.mul_input_and_gate([a, sel[0], gate.not_gate(sel[1]), gate.not_gate(sel[2])]),
+            gate.mul_input_and_gate([a, sel[0], gate.not_gate(sel[1]), sel[2]]),
+            gate.mul_input_and_gate([a, sel[0], sel[1], gate.not_gate(sel[2])]),
+            gate.mul_input_and_gate([a, sel[0], sel[1], sel[2]])
+            ]
