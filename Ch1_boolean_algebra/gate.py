@@ -22,3 +22,24 @@ def or_gate(a, b):
 
 def xor_gate(a, b):
     return and_gate(or_gate(a, b), nand_gate(a, b))
+
+
+def mul_not_gate(bits):
+    temp = []
+    for bit in bits:
+        temp.append(not_gate(bit))
+    return temp
+
+
+def mul_and_gate(bits_a, bits_b):
+    temp = []
+    for i in range(len(bits_a)):
+        temp.append(and_gate(bits_a[i], bits_b[i]))
+    return
+
+
+def mul_or_gate(bits_a, bits_b):
+    temp = []
+    for i in range(len(bits_a)):
+        temp.append(or_gate(bits_a[i], bits_b[i]))
+    return temp
