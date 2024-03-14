@@ -36,7 +36,7 @@ def mul_and_gate(bits_a, bits_b):
     temp = []
     for i in range(len(bits_a)):
         temp.append(and_gate(bits_a[i], bits_b[i]))
-    return
+    return temp
 
 
 def mul_or_gate(bits_a, bits_b):

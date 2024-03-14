@@ -1,4 +1,4 @@
-import gate
+from Ch1_boolean_algebra import gate
 
 
 def mux_2bit(a, b, sel):

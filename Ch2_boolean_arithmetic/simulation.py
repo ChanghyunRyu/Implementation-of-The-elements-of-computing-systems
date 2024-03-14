@@ -20,3 +20,6 @@ a = [1, 0, 1, 1]
 b = [0, 0, 1, 0]
 print(adder_unit.adder(a, b))
 print()
+
+print(adder_unit.incrementer(a))
+print()
