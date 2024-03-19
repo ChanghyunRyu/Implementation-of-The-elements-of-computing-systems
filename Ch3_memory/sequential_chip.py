@@ -20,11 +20,27 @@ class dff:
 # Chip name: register
 # input: d, load , output: out,
 # function: if load(t) then out(t+1) = d(t), else out(t+1) = out(t)
-class register:
+class register_bit:
     def __init__(self):
         self.out = 0
         self.dff = dff()
 
     def circuit(self, d, load, clk):
         self.out = self.dff.circuit(multiplexer.mux_2bit(self.out, d, load), clk)
+        return self.out
+
+
+# Chip name: register_16bit
+# input: d[16], load , output: out[16]
+# function: if load(t) then out(t+1) = d(t), else out(t+1) = out(t), "="은 16비트 연산.
+class register_16bit:
+    def __init__(self):
+        self.out = [0]*16
+        self.reg = []
+        for _ in range(16):
+            self.reg.append(register_bit())
+
+    def circuit(self, d_16bit, load, clk):
+        for i in range(16):
+            self.out[i] = self.reg[i].circuit(d_16bit[i], load, clk)
         return self.out
