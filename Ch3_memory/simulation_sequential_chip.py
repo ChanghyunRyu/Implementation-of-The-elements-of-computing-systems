@@ -23,6 +23,7 @@ for i in range(12):
     if clk == 0:
         time += 1
         print('time = {}, load = {}, input = {}, out = {}'.format(time+1, loads[time], inputs[time], rgs1.out))
+print()
 
 print('-------------register_16bit---------------')
 x = [0, 0, 0, 0, 0, 0, 0, 0,
