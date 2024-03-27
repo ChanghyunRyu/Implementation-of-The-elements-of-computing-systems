@@ -22,3 +22,22 @@ class ram8:
                                             self.regs[4].out, self.regs[5].out, self.regs[6].out, self.regs[7].out,
                                             address)
         return self.out
+
+
+class ram64:
+    def __init__(self):
+        self.out = [0]*16
+        self.ram8s = []
+        for _ in range(8):
+            self.ram8s.append(ram8())
+
+    def circuit(self, d_16bit, load, address, clk):
+        ram_address = address[:3]
+        reg_address = address[3:]
+        loads = multiplexer.dmux_8_way(load, ram_address)
+        for i in range(8):
+            self.ram8s[i].circuit(d_16bit, loads[i], reg_address, clk)
+        self.out = multiplexer.mux_8_way_16(self.ram8s[0].out, self.ram8s[1].out, self.ram8s[2].out, self.ram8s[3].out,
+                                            self.ram8s[4].out, self.ram8s[5].out, self.ram8s[6].out, self.ram8s[7].out,
+                                            ram_address)
+        return self.out

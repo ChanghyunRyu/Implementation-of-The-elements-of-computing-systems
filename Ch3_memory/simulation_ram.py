@@ -22,3 +22,8 @@ for i in range(12):
         print(ram1.out)
         print()
 print()
+
+print('-------------ram64--------------')
+address = [0, 1, 2, 3, 4, 5]
+print(address[:3])
+print(address[3:])
